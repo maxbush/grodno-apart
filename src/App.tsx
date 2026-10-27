@@ -369,6 +369,7 @@ function ApartmentCard({
           <img
             src={apt.images[0]}
             alt={apt.name}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -502,6 +503,7 @@ function ApartmentModal({
             <img
               src={apt.images[currentImage]}
               alt={`${apt.name} — фото ${currentImage + 1}`}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
 
