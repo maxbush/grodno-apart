@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-50: #eef8fa;
+  --color-teal-100: #d4eff4;
+  --color-teal-200: #a8dde8;
+  --color-teal-300: #7bc8d8;
+  --color-teal-400: #4bafc4;
+  --color-teal-500: #3b8ea5;
+  --color-teal-600: #2d7185;
+  --color-teal-700: #245a6b;
+  --color-teal-800: #1b4452;
+  --color-teal-900: #132f39;
+  --color-cream: #faf9f6;
+  --color-warm: #f5f1ec;
+  --color-gold: #c4a265;
+  --color-charcoal: #1a1a1a;
+  --color-slate-warm: #4a4a4a;
+
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-teal-200);
+  color: var(--color-teal-900);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-teal-300);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal-500);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+
+/* Hide "читать далее" button when text doesn't exceed 4 lines */
+button[data-visible="false"] {
+  display: none;
+}
+
+/* Show ellipsis only when text needs truncation */
+span[data-needsMore="true"]::after {
+  content: '...';
+  color: rgba(74, 74, 74, 0.3);
+}
+
+/* Hide ellipsis when text fits */
+span[data-needsMore="false"]::after {
+  content: none;
+}
